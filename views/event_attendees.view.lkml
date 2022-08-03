@@ -98,6 +98,7 @@ view: event_attendees {
   }
 
   dimension: vanid {
+    primary_key: yes
     type: number
     value_format_name: id
     sql: ${TABLE}.vanid ;;
