@@ -75,6 +75,7 @@ view: event_data {
   }
 
   dimension: eventid {
+    primary_key: yes
     type: number
     value_format_name: id
     sql: ${TABLE}.eventid ;;
