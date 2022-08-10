@@ -32,7 +32,7 @@ view: member_data_no_pii_fake {
 
   dimension: active_status {
     type: string
-    sql: ${TABLE}.active_status = ;;
+    sql: ${TABLE}.active_status  ;;
   }
 
   dimension: active_version {
@@ -261,6 +261,66 @@ view: member_data_no_pii_fake {
     sql: ${TABLE}.startdatereal ;;
   }
 
+
+  dimension: duesprocesseddate2 {
+    type: string
+    sql: ${TABLE}.duesprocesseddate2 ;;
+  }
+
+  dimension: duesprocesseddate3 {
+    type: string
+    sql: ${TABLE}.duesprocesseddate3 ;;
+  }
+
+
+  dimension: employertype2 {
+    type: string
+    sql: ${TABLE}.employertype2 ;;
+  }
+
+  dimension: employertype3 {
+    type: string
+    sql: ${TABLE}.employertype3 ;;
+  }
+
+
+  dimension: hoursperweek {
+    type: string
+    sql: ${TABLE}.hoursperweek ;;
+  }
+
+  dimension: initiationdate {
+    type: string
+    sql: ${TABLE}.initiationdate ;;
+  }
+
+  dimension: lajteamleaderdate {
+    type: string
+    sql: ${TABLE}.lajteamleaderdate ;;
+  }
+
+  dimension: memberorganizer {
+    type: string
+    sql: ${TABLE}.memberorganizer ;;
+  }
+
+  dimension: memberpoliticalorganizer {
+    type: string
+    sql: ${TABLE}.memberpoliticalorganizer ;;
+  }
+
+
+  dimension: rownum {
+    type: number
+    sql: ${TABLE}.rownum ;;
+  }
+
+
+
+  dimension: steward {
+    type: string
+    sql: ${TABLE}.steward ;;
+  }
 
   dimension: subsector {
     type: string
