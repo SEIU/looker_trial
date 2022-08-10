@@ -1,6 +1,30 @@
 view: member_data_no_pii_fake {
   sql_table_name: trial.member_data_no_pii_fake ;;
 
+  measure: total_unit {
+    type: count
+    filters: [membertypename: "Member, Retiree, Objector" ]
+  }
+
+  measure: members {
+    type: count
+    filters: [membertypename: "Member" ]
+  }
+
+  measure: member_strength {
+    type: number
+    sql: ${members}/${total_unit} ;;
+  }
+
+  measure: cope_contributors {
+    type: count
+    filters: [copecontributor: "Y"]
+  }
+  measure: count_distinct_member {
+    type: count_distinct
+    sql: ${membertypename} ;;
+  }
+
   dimension: active_revision {
     type: string
     sql: ${TABLE}.active_revision ;;
@@ -8,7 +32,7 @@ view: member_data_no_pii_fake {
 
   dimension: active_status {
     type: string
-    sql: ${TABLE}.active_status ;;
+    sql: ${TABLE}.active_status  ;;
   }
 
   dimension: active_version {
@@ -111,25 +135,11 @@ view: member_data_no_pii_fake {
     sql: ${TABLE}.duesauthcardreceiveddate ;;
   }
 
-  dimension: duesauthorizationcardleader {
-    type: string
-    sql: ${TABLE}.duesauthorizationcardleader ;;
-  }
-
   dimension: duesprocesseddate {
     type: string
     sql: ${TABLE}.duesprocesseddate ;;
   }
 
-  dimension: duesprocesseddate2 {
-    type: string
-    sql: ${TABLE}.duesprocesseddate2 ;;
-  }
-
-  dimension: duesprocesseddate3 {
-    type: string
-    sql: ${TABLE}.duesprocesseddate3 ;;
-  }
 
   dimension: duesprocesseddate_real {
     type: string
@@ -144,16 +154,6 @@ view: member_data_no_pii_fake {
   dimension: employertype {
     type: string
     sql: ${TABLE}.employertype ;;
-  }
-
-  dimension: employertype2 {
-    type: string
-    sql: ${TABLE}.employertype2 ;;
-  }
-
-  dimension: employertype3 {
-    type: string
-    sql: ${TABLE}.employertype3 ;;
   }
 
   dimension: excluded {
@@ -171,16 +171,6 @@ view: member_data_no_pii_fake {
     sql: ${TABLE}.homecare_status ;;
   }
 
-  dimension: hoursperweek {
-    type: string
-    sql: ${TABLE}.hoursperweek ;;
-  }
-
-  dimension: initiationdate {
-    type: string
-    sql: ${TABLE}.initiationdate ;;
-  }
-
   dimension: jobclass {
     type: string
     sql: ${TABLE}.jobclass ;;
@@ -196,10 +186,6 @@ view: member_data_no_pii_fake {
     sql: ${TABLE}.jobtitle ;;
   }
 
-  dimension: lajteamleaderdate {
-    type: string
-    sql: ${TABLE}.lajteamleaderdate ;;
-  }
 
   dimension: local_summary_ck {
     type: number
@@ -212,18 +198,9 @@ view: member_data_no_pii_fake {
   }
 
   dimension: mapp_master_ck {
+    primary_key: yes
     type: number
     sql: ${TABLE}.mapp_master_ck ;;
-  }
-
-  dimension: memberorganizer {
-    type: string
-    sql: ${TABLE}.memberorganizer ;;
-  }
-
-  dimension: memberpoliticalorganizer {
-    type: string
-    sql: ${TABLE}.memberpoliticalorganizer ;;
   }
 
   dimension: membershipcardsigned {
@@ -246,6 +223,7 @@ view: member_data_no_pii_fake {
     sql: ${TABLE}.membertypename ;;
   }
 
+
   dimension: public_private {
     type: string
     sql: ${TABLE}.public_private ;;
@@ -256,10 +234,6 @@ view: member_data_no_pii_fake {
     sql: ${TABLE}.revision_number ;;
   }
 
-  dimension: rownum {
-    type: number
-    sql: ${TABLE}.rownum ;;
-  }
 
   dimension: sector {
     type: string
@@ -281,15 +255,67 @@ view: member_data_no_pii_fake {
     sql: ${TABLE}.seiuzip ;;
   }
 
-  dimension: startdate {
-    type: string
-    sql: ${TABLE}.startdate ;;
-  }
 
   dimension: startdatereal {
     type: string
     sql: ${TABLE}.startdatereal ;;
   }
+
+
+  dimension: duesprocesseddate2 {
+    type: string
+    sql: ${TABLE}.duesprocesseddate2 ;;
+  }
+
+  dimension: duesprocesseddate3 {
+    type: string
+    sql: ${TABLE}.duesprocesseddate3 ;;
+  }
+
+
+  dimension: employertype2 {
+    type: string
+    sql: ${TABLE}.employertype2 ;;
+  }
+
+  dimension: employertype3 {
+    type: string
+    sql: ${TABLE}.employertype3 ;;
+  }
+
+
+  dimension: hoursperweek {
+    type: string
+    sql: ${TABLE}.hoursperweek ;;
+  }
+
+  dimension: initiationdate {
+    type: string
+    sql: ${TABLE}.initiationdate ;;
+  }
+
+  dimension: lajteamleaderdate {
+    type: string
+    sql: ${TABLE}.lajteamleaderdate ;;
+  }
+
+  dimension: memberorganizer {
+    type: string
+    sql: ${TABLE}.memberorganizer ;;
+  }
+
+  dimension: memberpoliticalorganizer {
+    type: string
+    sql: ${TABLE}.memberpoliticalorganizer ;;
+  }
+
+
+  dimension: rownum {
+    type: number
+    sql: ${TABLE}.rownum ;;
+  }
+
+
 
   dimension: steward {
     type: string

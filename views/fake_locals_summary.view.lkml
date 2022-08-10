@@ -5,25 +5,14 @@ view: fake_locals_summary {
     type: number
     sql: ${TABLE}.all_members_hired_last_180_days ;;
   }
-
   dimension: all_workers_hired_last_180_days {
     type: number
     sql: ${TABLE}.all_workers_hired_last_180_days ;;
   }
 
-  dimension: member_strength {
-    type: number
-    sql: ${members}/${total_unit} ;;
-  }
-
-  dimension: cope_contributor_pct {
-    type: number
-    sql: ${cope_contributors}/${members} ;;
-  }
-
   dimension: average_cope_contribution {
     type: number
-    sql: ${TABLE}.total_cope_contribution/${cope_contributors} ;;
+    sql: ${TABLE}.average_cope_contribution ;;
   }
 
   dimension: cope_contributors {
@@ -66,6 +55,7 @@ view: fake_locals_summary {
     sql: ${TABLE}.hc_22 ;;
   }
 
+
   dimension: ieb_all_members_hired_last_180 {
     type: number
     sql: ${TABLE}.ieb_all_members_hired_last_180 ;;
@@ -78,7 +68,7 @@ view: fake_locals_summary {
 
   dimension: ieb_nhrr {
     type: number
-    sql: ${TABLE}.ieb_all_members_hired_last_180/${ieb_all_workers_hired_last_180} ;;
+    sql: ${TABLE}.ieb_nhrr ;;
   }
 
   dimension: ieb_total_members {
@@ -91,8 +81,10 @@ view: fake_locals_summary {
     sql: ${TABLE}.ieb_total_workers_excluding_retirees ;;
   }
 
+
+
   dimension: lastmappdate {
-    type: date
+    type: string
     sql: ${TABLE}.lastmappdate ;;
   }
 
@@ -107,6 +99,20 @@ view: fake_locals_summary {
     sql: ${TABLE}.localno
     ;;
   }
+  measure: member_strength {
+    type: number
+    sql: ${members}/${total_unit} ;;
+  }
+
+  measure: cope_contributor_pct {
+    type: number
+    sql: ${cope_contributors}/${members} ;;
+  }
+  measure: average_cope_contribution_detailed {
+    type: number
+    sql: ${TABLE}.total_cope_contribution/${cope_contributors} ;;
+  }
+
 
   dimension: member_drops {
     type: number
@@ -127,7 +133,6 @@ view: fake_locals_summary {
     type: number
     sql: ${TABLE}.nles ;;
   }
-
   dimension: ps_21 {
     type: number
     sql: ${TABLE}.ps_21 ;;
@@ -158,8 +163,10 @@ view: fake_locals_summary {
     sql: ${TABLE}.total_unit ;;
   }
 
+
   measure: count {
     type: count
     drill_fields: []
   }
+
 }
