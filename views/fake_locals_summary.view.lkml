@@ -103,8 +103,8 @@ view: fake_locals_summary {
 
   dimension: localno {
     type: string
-    sql: ${TABLE}.localno ;;
-    primary_key: yes
+    sql: ${TABLE}.localno
+    primary: Yes;;
   }
 
   dimension: member_drops {
