@@ -88,6 +88,7 @@ view: fake_locals_summary {
     sql: ${TABLE}.lastmappdate ;;
   }
 
+
   dimension: llnavid {
     type: string
     sql: ${TABLE}.llnavid ;;
