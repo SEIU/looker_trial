@@ -11,7 +11,7 @@ view: fake_locals_summary {
   }
 
   measure: NHRR {
-    type: number
+    type: sum
     sql: ${all_members_hired_last_180_days}/${all_workers_hired_last_180_days} ;;
   }
 
