@@ -10,6 +10,12 @@ view: fake_locals_summary {
     sql: ${TABLE}.all_workers_hired_last_180_days ;;
   }
 
+  measure: NHRR {
+    type: number
+    sql: ${all_members_hired_last_180_days}/${all_workers_hired_last_180_days} ;;
+  }
+
+
   dimension: average_cope_contribution {
     type: number
     sql: ${TABLE}.average_cope_contribution ;;
